@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaitho Njoroge Efron — IMMORTAL</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: black;
+  color: #00ffe1;
+  overflow-x: hidden;
+}
+
+/* MATRIX BACKGROUND */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header, footer {
+  background: rgba(0,0,0,0.9);
+  border-bottom: 2px solid #00ffe1;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 0 20px #00ffe1;
+}
+
+footer {
+  border-top: 2px solid #00ffe1;
+  border-bottom: none;
+  margin-top: 60px;
+}
+
+.container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 3em;
+  text-shadow: 0 0 25px #00ffe1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100%{transform: translateY(0);} 
+  50%{transform: translateY(-12px);} 
+}
+
+.card {
+  background: rgba(0,0,0,0.75);
+  border: 1px solid #00ffe1;
+  padding: 25px;
+  margin: 30px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00ffe1;
+}
+
+.profile-pic {
+  width: 200px;
+  border-radius: 50%;
+  border: 3px solid #00ffe1;
+  box-shadow: 0 0 30px #00ffe1;
+  margin-bottom: 20px;
+}
+
+.portal {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  border: 2px solid #00ffe1;
+  color: #00ffe1;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.portal:hover {
+  background: #00ffe1;
+  color: black;
+  box-shadow: 0 0 25px #00ffe1;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>GAITHO NJOROGE EFRON</h2>
+  WhatsApp: <a class="portal" href="https://wa.me/254792044501" target="_blank">Message Me</a>
+  Instagram: <a class="portal" href="https://instagram.com/spikyteller" target="_blank">@spikyteller</a>
+</header>
+
+<canvas id="matrix"></canvas>
+
+<div class="container">
+
+  <h1>IMMORTAL MODE</h1>
+
+  <div class="card">
+    <img src="WIN_20250127_06_44_12_Pro.jpg" alt="Gaitho" class="profile-pic">
+    <p><strong>Gaitho Njoroge Efron</strong> — Computer Science student, coder, and digital creator.</p>
+    <p>I studied Computer Science and mastered the art of building systems, solving problems, and creating digital experiences. My journey is the evolution from student to cyber legend.</p>
+  </div>
+
+  <div class="card">
+    <h2>INFINITE ABILITIES</h2>
+    <p>⚡ Web Development</p>
+    <p>⚡ Programming</p>
+    <p>⚡ Problem Solving</p>
+    <p>⚡ System Design</p>
+  </div>
+
+  <div class="card">
+    <h2>ETERNAL GATEWAY</h2>
+    <a class="portal" href="https://instagram.com/spikyteller" target="_blank">Enter Instagram Realm</a>
+    <br><br>
+    <a class="portal" href="https://wa.me/254792044501" target="_blank">Open WhatsApp Portal</a>
+  </div>
+
+</div>
+
+<footer>
+  WhatsApp: <a class="portal" href="https://wa.me/254792044501" target="_blank">0792044501</a>
+  Instagram: <a class="portal" href="https://instagram.com/spikyteller" target="_blank">@spikyteller</a>
+  <p>IMMORTAL • LEGEND • GAITHO NJOROGE EFRON</p>
+</footer>
+
+<script>
+// MATRIX EFFECT
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+const letters = "IMMORTAL";
+const fontSize = 16;
+const columns = canvas.width/fontSize;
+const drops = [];
+
+for(let x=0; x<columns; x++) drops[x]=1;
+
+function draw(){
+  ctx.fillStyle="rgba(0,0,0,0.05)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="#00ffe1";
+  ctx.font = fontSize+"px monospace";
+  for(let i=0;i<drops.length;i++){
+    const text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    if(drops[i]*fontSize>canvas.height && Math.random()>0.975) drops[i]=0;
+    drops[i]++;
+  }
+}
+setInterval(draw,33);
+</script>
+
+</body>
+</html>
